@@ -1,5 +1,13 @@
 # AWS Lambda / EFS Machine Learning network architecture 
 
+This project was inspired by reading the following AWS blog post:
+
+[AWS Shared File System for Lambdas](https://aws.amazon.com/blogs/aws/new-a-shared-file-system-for-your-lambda-functions/)
+
+where the authored showed how to execute a PyTorch model from a Lambda using EFS.
+
+I wanted to adapt this to use Scikit-Learn and create the CDK to build out the infrastructure.
+
 ## Goal
 
 Create a network architecture to allow a Lambda function to execute a Scikit-Learn machine learning model hosted on EFS.

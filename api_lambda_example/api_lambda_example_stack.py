@@ -76,7 +76,6 @@ class ApiLambdaExampleStack(Stack):
                                          description='SSH Access')
 
 
-
         # The following 2 ingress rules add access to port 8000, which is not needed right now
         # self.bastion_sg.add_ingress_rule(ec2.Peer.any_ipv4(), # any machine is allowed to ssh
         #                                  ec2.Port.tcp(8000),
@@ -116,9 +115,9 @@ class ApiLambdaExampleStack(Stack):
         # uid: 1000 ec2-user
         # uid: 1001 yet to be created user
         access_point = fs.add_access_point(f'{resources_prefix}-LambdaAccessPoint',
-                                           create_acl=efs.Acl(owner_gid='1001', owner_uid='1001', permissions='755'),
+                                           create_acl=efs.Acl(owner_gid='1000', owner_uid='1000', permissions='755'),
                                            path="/export/lambda",
-                                           posix_user=efs.PosixUser(gid="1000", uid="1001"))
+                                           posix_user=efs.PosixUser(gid="1000", uid="1000"))
 
         """
         from: https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_efs/README.html

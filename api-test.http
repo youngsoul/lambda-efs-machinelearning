@@ -1,0 +1,41 @@
+POST {{host}}
+Content-Type: application/json
+
+{
+  "Age": 54,
+ "Sex": "M",
+ "ChestPainType": "NAP",
+ "RestingBP": 150,
+ "Cholesterol": 195,
+ "FastingBS": 0,
+  "RestingECG": "Normal",
+ "MaxHR": 122,
+ "ExerciseAngina":  "N",
+ "Oldpeak":  0.0,
+ "ST_Slope": "Up"
+}
+
+###
+### Heart Failure 1
+POST {{host}}
+Content-Type: application/json
+
+{
+  "Age": 48,
+ "Sex": "F",
+ "ChestPainType": "ASY",
+ "RestingBP": 138,
+ "Cholesterol": 214,
+ "FastingBS": 0,
+  "RestingECG": "Normal",
+ "MaxHR": 108,
+ "ExerciseAngina":  "Y",
+ "Oldpeak":  1.5,
+ "ST_Slope": "Flat"
+}
+
+###
+GET {{host}}
+Accept: application/json
+
+###

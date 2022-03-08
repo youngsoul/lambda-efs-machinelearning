@@ -58,19 +58,19 @@ The project in this repo demonstrates the following:
 
 The EC2 instance is used to setup the Python environment that will be used by the Lambda function.  The EC2 is also used to copy the model Pickle file to the mounted file system.
 
+These commands assume that the access point was setup with uid/gid of 1000 which is the ec2-user.  If you did not you will need the `chmod` command below.
+
 ```shell
 sudo mkdir /mnt/efs
 sudo yum install -y amazon-efs-utils
 sudo mount -t efs <fs-ID>:/ /mnt/efs
 sudo mkdir /mnt/efs/export/lambda/venv
-sudo chmod -R go+rwx /mnt/efs
+
+# sudo chmod -R go+rwx /mnt/efs
+
 sudo pip3 install --target /mnt/efs/export/lambda/venv pandas
 sudo pip3 install --target /mnt/efs/export/lambda/venv scikit-learn
 
-# If you want/need to create the user used in the access point but if you CHMOD you do not need to
-sudo useradd --uid 1001 mluser
-sudo passwd mluser 
-su mluser
 ```
 
 ### Copy Model File

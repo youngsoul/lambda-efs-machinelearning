@@ -46,6 +46,19 @@ The project in this repo demonstrates the following:
 * `pip install -r requirements.txt`
 * `cdk deploy --profile <yourprofile>`
 
+## Initialize a new CDK project
+
+If you want to not start with the repo, but build your project from scratch, initialize a blank CDK project.
+
+```shell
+# Initialize new project
+mkdir <projectname>
+cd <projectname>
+cdk init app --language python
+source .venv/bin/activate
+pip install -r requirements.txt
+```
+
 ## General Steps
 
 * Deploy the stack

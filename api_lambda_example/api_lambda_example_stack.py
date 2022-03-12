@@ -71,7 +71,7 @@ class ApiLambdaExampleStack(Stack):
         # self.bastion_sg.add_ingress_rule(ec2.Peer.any_ipv4(), # any machine is allowed to ssh
         #                                  ec2.Port.tcp(22),
         #                                 description='SSH Access')
-        self.bastion_sg.add_ingress_rule(peer=ec2.Peer.ipv4('73.209.223.60/32'),  # only my machine
+        self.bastion_sg.add_ingress_rule(peer=ec2.Peer.ipv4('xxx.xxx.xxx.xxx/32'),  # only my machine
                                          connection=ec2.Port.tcp(22),
                                          description='SSH Access')
 
@@ -121,8 +121,8 @@ class ApiLambdaExampleStack(Stack):
 
         """
         from: https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_efs/README.html
-           section: "Mounting the FileSystem using UserData 
-        
+           section: "Mounting the FileSystem using UserData
+
         instance.user_data.add_commands("yum check-update -y", "yum upgrade -y", "yum install -y amazon-efs-utils", "yum install -y nfs-utils", "file_system_id_1=" + fs.file_system_id, "efs_mount_point_1=/mnt/efs/fs1", "mkdir -p "${efs_mount_point_1}"", "test -f "/sbin/mount.efs" && echo "${file_system_id_1}:/ ${efs_mount_point_1} efs defaults,_netdev" >> /etc/fstab || " + "echo "${file_system_id_1}.efs." + Stack.of(self).region + ".amazonaws.com:/ ${efs_mount_point_1} nfs4 nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport,_netdev 0 0" >> /etc/fstab", "mount -a -t efs,nfs4 defaults")
 
         """
